@@ -8,7 +8,7 @@ ReactDOM.render(
     document.getElementById('app')
 );
 if (module.hot) {
-  module.hot.accept('./containers/App', () => {
+  module.hot.accept('./components/containers/App', () => {
     const NextApp = require('./containers/App').default;
     ReactDOM.render(
             <AppContainer>
