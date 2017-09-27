@@ -2,6 +2,10 @@ import React from 'react';
 import uuid from 'uuid';
 import style from './App.css';
 
+import Title from '../Title';
+import TodoList from '../TodoList';
+import TodoForm from '../TodoForm';
+
 
 class App extends React.Component {
     constructor(props){
@@ -13,6 +17,9 @@ class App extends React.Component {
                 {id: 3, text: 'feed my cat'}
             ]
         };
+
+        this.removeTodo = this.removeTodo.bind(this);
+        this.addTodo = this.addTodo.bind(this);
     }
     addTodo(val){
         const todo = {
@@ -29,7 +36,9 @@ class App extends React.Component {
     render() {
         return (
             <div className="style.TodoApp">
-                Tutaj pojawią się komponenty naszej aplikacji.
+                <Title title="Todo App" number={ this.state.data.length } />
+                <TodoForm addTodo={ this.addTodo } />
+                <TodoList todos={ this.state.data } removeTodo={ this.removeTodo } />
             </div>
         );
     }
